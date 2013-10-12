@@ -83,6 +83,11 @@ footer a:hover, footer a:focus {
   color: #666;
 }
 
+footer span {
+  display: inline-block;
+  margin: 0 1em;
+}
+
 .form-group {
     margin-bottom: 10px;
 }

@@ -58,7 +58,12 @@ var extractcss_popup = {
   },
 
   setup_tab_url_link: function(url) {
-    $('#url').text(url).attr('href', url).click(function() {
+    $('#url').text(url).attr('href', url);
+  },
+
+  setup_external_links: function() {
+    $('a.external-link').click(function() {
+      var url = $(this).attr('href');
       chrome.tabs.create({url: url});
       return false;
     });
@@ -118,6 +123,7 @@ var extractcss_popup = {
     $('#spinner').hide();
     $('#result-wrapper').hide();
     this.setup_tab_url_link(url);
+    this.setup_external_links();
     this.setup_select_all_button();
     this.setup_textarea();
     this.set_default_options();

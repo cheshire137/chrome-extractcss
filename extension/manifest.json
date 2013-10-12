@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "extractCSS",
-  "description": "This extension lets you extract the CSS classes, IDs, and inline styles from web pages, generating a stub CSS file for use with web development.",
+  "description": "Extract the CSS classes, IDs, and inline styles from web pages, generating a stub CSS file for use with web development.",
   "version": "0.0.0.1",
   "permissions": [
     "tabs", "<all_urls>", "storage"

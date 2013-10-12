@@ -66,6 +66,23 @@ fieldset legend {
     font-weight: bold;
 }
 
+footer {
+    font-size: 12px;
+    color: #888;
+    margin: 10px 0;
+}
+
+footer a, footer a:link,
+footer a:visited, footer a:active {
+  color: #999;
+  text-decoration: underline;
+}
+
+footer a:hover, footer a:focus {
+  text-decoration: none;
+  color: #666;
+}
+
 .form-group {
     margin-bottom: 10px;
 }
@@ -90,6 +107,13 @@ h1 img {
 
 .hidden {
     display: none;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+    margin: 10px 0;
 }
 
 p {

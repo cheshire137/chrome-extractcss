@@ -106,6 +106,13 @@ var extractcss_popup = {
     extractcss_util.load_default_options();
   },
 
+  setup_options_link: function() {
+    $('a[href="#options"]').click(function() {
+      chrome.tabs.create({url: chrome.extension.getURL('options.html')});
+      return false;
+    });
+  },
+
   on_popup_opened: function(tab_id, url) {
     $('form').show();
     $('#spinner').hide();
@@ -114,6 +121,7 @@ var extractcss_popup = {
     this.setup_select_all_button();
     this.setup_textarea();
     this.set_default_options();
+    this.setup_options_link();
     this.setup_form(tab_id);
   }
 };

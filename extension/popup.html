@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>extractcss Extension Popup</title>
-    <link rel="stylesheet" href="pure-min.css">
+    <link rel="stylesheet" href="prism.css">
     <link rel="stylesheet" href="extractcss.css">
-    <link rel="stylesheet" href="futurico/futurico.css">
-    <link href="http://fonts.googleapis.com/css?family=Crete+Round|Open+Sans" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
     <script src="jquery-2.0.3.min.js"></script>
     <script src="extractcss.js"></script>
     <script src="cssbeautify.min.js"></script>
@@ -19,7 +18,19 @@
         <img src="icon48.png" alt="extractcss" id="logo">
         extractcss
       </h1>
-      <textarea id="result"></textarea>
+      <img src="spinner.gif" alt="Extracting CSS..." id="spinner" width="32" height="32">
+      <div class="hidden" id="result-wrapper">
+        <p>
+          <code><a href="" id="url"></a></code>
+        </p>
+        <p>
+          <button id="select-all-btn" class="hidden" data-clipboard-target="result">Select All</button>
+        </p>
+        <pre><code id="result" class="language-css"></code></pre>
+        <textarea class="hidden"></textarea>
+      </div>
     </div>
+    <script src="ZeroClipboard.min.js"></script>
+    <script src="prism.js" data-manual></script>
   </body>
 </html>

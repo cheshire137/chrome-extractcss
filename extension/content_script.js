@@ -12,7 +12,6 @@ var extractcss_content_script = {
   },
 
   on_popup_opened: function(tab_id, callback) {
-    console.log('popup opened');
     callback(this.get_page_html());
   }
 };

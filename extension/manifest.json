@@ -10,7 +10,7 @@
     {
       "all_frames": true,
       "matches": ["http://*/*", "https://*/*", "<all_urls>", "file:///*"],
-      "js": ["jquery-2.0.3.min.js", "extractcss.js", "cssbeautify.min.js", "codemirror.min.js", "jquery.icheck.min.js", "custom.js", "popup.js"]
+      "js": ["jquery-2.0.3.min.js", "extractcss.js", "cssbeautify.min.js", "jquery.icheck.min.js", "popup.js", "content_script.js"]
     }
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",

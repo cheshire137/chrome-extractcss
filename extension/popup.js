@@ -7,7 +7,19 @@
  */
 
 var extractcss_popup = {
-  on_popup_opened: function() {
+  on_popup_opened: function(html) {
+    var options = {
+        extractInline: 'on',
+        extractChildren: 'on'
+    };
+    var cssboptions = {
+      openbrace: 'end-of-line',
+      indent: '  ',
+      autosemicolon: true
+    };
+    var result = extractCSS.extractIDs(html, options, cssboptions) + '\n\n' +
+                 extractCSS.extractClasses(html, options, cssboptions);
+    $('#result').val(result);
   }
 };
 
@@ -16,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.tabs.sendRequest(
       tab.id,
       {greeting: 'popup_opened', tab_id: tab.id},
-      function() {
-        extractcss_popup.on_popup_opened();
+      function(html) {
+        extractcss_popup.on_popup_opened(html);
       }
     );
   });

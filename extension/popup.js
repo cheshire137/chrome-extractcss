@@ -56,6 +56,9 @@ var extractcss_popup = {
         textarea.unbind('mouseup');
         return false;
       });
+    }).blur(function() {
+      $('textarea').val('').hide();
+      $('pre').show();
     });
   }
 };

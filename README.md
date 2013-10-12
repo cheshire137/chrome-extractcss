@@ -8,3 +8,5 @@ Chrome extension to let you get a stubbed stylesheet for pages you visit.
 ## Screenshots
 
 ![Screenshot of extractCSS](http://github.com/moneypenny/chrome-extractcss/raw/master/screenshot.png)
+
+![Screenshot of extractCSS options](http://github.com/moneypenny/chrome-extractcss/raw/master/screenshot2.png)

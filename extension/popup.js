@@ -86,7 +86,7 @@ var extractcss_popup = {
     });
   },
 
-  setup_form: function() {
+  setup_form: function(tab_id) {
     var me = this;
     $('form').submit(function(e) {
       e.preventDefault();
@@ -102,6 +102,10 @@ var extractcss_popup = {
     });
   },
 
+  set_default_options: function() {
+    extractcss_util.load_default_options();
+  },
+
   on_popup_opened: function(tab_id, url) {
     $('form').show();
     $('#spinner').hide();
@@ -109,7 +113,8 @@ var extractcss_popup = {
     this.setup_tab_url_link(url);
     this.setup_select_all_button();
     this.setup_textarea();
-    this.setup_form();
+    this.set_default_options();
+    this.setup_form(tab_id);
   }
 };
 

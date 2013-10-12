@@ -11,7 +11,7 @@
       "all_frames": true,
       "matches": ["http://*/*", "https://*/*", "<all_urls>", "file:///*"],
       "js": ["jquery-2.0.3.min.js", "extractcss.js", "cssbeautify.min.js",
-             "jquery.icheck.min.js", "prism.js", "popup.js",
+             "jquery.icheck.min.js", "prism.js", "popup.js", "util.js",
              "content_script.js"]
     }
   ],

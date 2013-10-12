@@ -29,42 +29,7 @@ function save_options() {
 }
 
 function restore_options() {
-  chrome.storage.sync.get('extractcss_options', function(opts) {
-    opts = opts.extractcss_options || {};
-    if (opts.openbrace) {
-      var selector = 'input[name="openbrace"][value="' + opts.openbrace + '"]';
-      $(selector).attr('checked', 'checked');
-    }
-    if (opts.indent) {
-      var selector = 'input[name="indent"][value="' + opts.indent + '"]';
-      $(selector).attr('checked', 'checked');
-    }
-    if (opts.extract_inline === 'off') {
-      $('#extract_inline').removeAttr('checked');
-    } else {
-      $('#extract_inline').attr('checked', 'checked');
-    }
-    if (opts.extract_children === 'off') {
-      $('#extract_children').removeAttr('checked');
-    } else {
-      $('#extract_children').attr('checked', 'checked');
-    }
-    if (typeof(opts.extract_ids) === 'undefined' || opts.extract_ids) {
-      $('#extract_ids').attr('checked', 'checked');
-    } else {
-      $('#extract_ids').removeAttr('checked');
-    }
-    if (typeof(opts.extract_classes) === 'undefined' || opts.extract_classes) {
-      $('#extract_classes').attr('checked', 'checked');
-    } else {
-      $('#extract_classes').removeAttr('checked');
-    }
-    if (typeof(opts.autosemicolon) === 'undefined' || opts.autosemicolon) {
-      $('#autosemicolon').attr('checked', 'checked');
-    } else {
-      $('#autosemicolon').removeAttr('checked');
-    }
-  });
+  extractcss_util.load_default_options();
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);

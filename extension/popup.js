@@ -9,8 +9,8 @@
 var extractcss_popup = {
   on_html_extracted: function(html) {
     var options = {
-        extractInline: $('#extract_inline').val(),
-        extractChildren: $('#extract_children').val()
+        extractInline: $('#extract_inline').is(':checked') ? 'on' : 'off',
+        extractChildren: $('#extract_children').is(':checked') ? 'on' : 'off'
     };
     var cssboptions = {
       openbrace: $('input[name="openbrace"]:checked').val(),

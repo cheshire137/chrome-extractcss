@@ -23,8 +23,8 @@ var extractcss_popup = {
     } else if (indent_choice === 'tab') {
         cssboptions.indent = '\t';
     }
-    var should_extract_ids = $('#extract_ids').val();
-    var should_extract_classes = $('#extract_classes').val();
+    var should_extract_ids = $('#extract_ids').is(':checked');
+    var should_extract_classes = $('#extract_classes').is(':checked');
     var result = '';
     var extract_ids = function() {
       try {
@@ -42,9 +42,9 @@ var extractcss_popup = {
         return ''
       }
     };
-    if (extract_ids === 'on' && extract_classes === 'on') {
+    if (should_extract_ids && should_extract_classes) {
       result = extract_ids() + '\n\n' + extract_classes();
-    } else if (extract_ids === 'on' && extract_classes !== 'on') {
+    } else if (should_extract_ids && !should_extract_classes) {
       result = extract_ids();
     } else {
       result = extract_classes();

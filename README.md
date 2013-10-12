@@ -4,3 +4,7 @@
 from HTML document and output them as CSS stylesheet, built by Adnan Topal. I'm
 building on [his work](https://github.com/adnantopal/extractcss) by writing a
 Chrome extension to let you get a stubbed stylesheet for pages you visit.
+
+## Screenshots
+
+![Screenshot of extractCSS](http://github.com/moneypenny/chrome-extractcss/raw/master/screenshot.png)

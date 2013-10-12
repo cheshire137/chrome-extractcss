@@ -18,19 +18,87 @@
         <img src="icon48.png" alt="extractcss" id="logo">
         extractcss
       </h1>
-      <img src="spinner.gif" alt="Extracting CSS..." id="spinner" width="32" height="32">
+      <form>
+        <div class="form-group">
+          <label for="extract_ids">
+            <input type="checkbox" id="extract_ids" name="extract_ids" checked="checked">
+            Extract ids
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="extract_classes">
+            <input type="checkbox" id="extract_classes" name="extract_classes" checked="checked">
+            Extract classes
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="extract_inline">
+            <input type="checkbox" id="extract_inline" name="extract_inline" checked="checked">
+            Extract inline styles
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="extract_children" class="tooltip" title="When checked, extracts children that don't have class or id.">
+            <input type="checkbox" id="extract_children" name="extract_children" checked="checked">
+            Extract children
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="autosemicolon">
+            <input type="checkbox" id="autosemicolon" name="autosemicolon" checked="checked">
+            Automatic semicolon
+          </label>
+        </div>
+        <fieldset>
+          <legend>Indent with:</legend>
+          <div class="form-group">
+            <label for="fourspaces">
+              <input type="radio" id="fourspaces" name="indent" value="fourspaces" checked="checked">
+              4 spaces
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="twospaces">
+              <input type="radio" id="twospaces" name="indent" value="twospaces">
+              2 spaces
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="tab">
+              <input type="radio" id="tab" name="indent" value="tab">
+              tab
+            </label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Open curly brace:</legend>
+          <div class="form-group">
+            <label for="openbrace-end-of-line">
+              <input type="radio" id="openbrace-end-of-line" name="openbrace" value="end-of-line" checked="checked">
+              end of line
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="openbrace-separate-line">
+              <input type="radio" id="openbrace-separate-line" name="openbrace" value="separate-line">
+              separate line
+            </label>
+          </div>
+        </fieldset>
+        <button type="submit">Extract CSS</button>
+      </form>
+      <img src="spinner.gif" alt="Extracting CSS..." id="spinner" width="32" height="32" class="hidden">
       <div class="hidden" id="result-wrapper">
         <p>
           <code><a href="" id="url"></a></code>
         </p>
         <p>
-          <button id="select-all-btn" class="hidden" data-clipboard-target="result">Select All</button>
+          <button id="select-all-btn" class="hidden">Select All</button>
         </p>
         <pre><code id="result" class="language-css"></code></pre>
         <textarea class="hidden"></textarea>
       </div>
     </div>
-    <script src="ZeroClipboard.min.js"></script>
     <script src="prism.js" data-manual></script>
   </body>
 </html>

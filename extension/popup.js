@@ -37,12 +37,14 @@ var extractcss_popup = {
     });
   },
 
-  on_popup_opened: function(url) {
+  on_popup_opened: function(tab_id, url) {
+    var me = this;
     $('#url').text(url).attr('href', url).click(function() {
       chrome.tabs.create({url: url});
       return false;
     });
-    $('#spinner').show();
+    $('form').show();
+    $('#spinner').hide();
     $('#result-wrapper').hide();
     $('#select-all-btn').hide().click(function() {
       $('pre').hide();
@@ -60,18 +62,23 @@ var extractcss_popup = {
       $('textarea').val('').hide();
       $('pre').show();
     });
+    $('form').submit(function(e) {
+      e.preventDefault();
+      $('form').hide();
+      $('#spinner').show();
+      chrome.tabs.sendRequest(
+        tab_id,
+        {greeting: 'popup_opened', tab_id: tab_id},
+        function(html) {
+          me.on_html_extracted(html);
+        }
+      );
+    });
   }
 };
 
 document.addEventListener('DOMContentLoaded', function() {
   chrome.tabs.getSelected(null, function(tab) {
-    extractcss_popup.on_popup_opened(tab.url);
-    chrome.tabs.sendRequest(
-      tab.id,
-      {greeting: 'popup_opened', tab_id: tab.id},
-      function(html) {
-        extractcss_popup.on_html_extracted(html);
-      }
-    );
+    extractcss_popup.on_popup_opened(tab.id, tab.url);
   });
 });

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <title>extractCSS Extension Options</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="screen" href="extractcss.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="options.css">
+  </head>
+  <body class="options">
+    <div class="container">
+      <div class="header">
+        <img src="icon48.png" width="48" height="48" alt="extractCSS logo" class="pull-left logo">
+        <h1>extractCSS Options</h1>
+        <hr>
+      </div>
+      <p id="status-message" class="hidden alert"></p>
+      <p>Set defaults for extracting CSS from a page:</p>
+      <div class="form-group">
+        <label for="extract_ids">
+          <input type="checkbox" id="extract_ids" name="extract_ids" checked="checked">
+          Extract IDs
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="extract_classes">
+          <input type="checkbox" id="extract_classes" name="extract_classes" checked="checked">
+          Extract classes
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="extract_inline">
+          <input type="checkbox" id="extract_inline" name="extract_inline" checked="checked">
+          Extract inline styles
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="extract_children" class="tooltip" title="When checked, extracts children that don't have class or id.">
+          <input type="checkbox" id="extract_children" name="extract_children" checked="checked">
+          Extract children
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="autosemicolon">
+          <input type="checkbox" id="autosemicolon" name="autosemicolon" checked="checked">
+          Automatic semicolon
+        </label>
+      </div>
+      <fieldset>
+        <legend>Indent with:</legend>
+        <div class="inline form-group">
+          <label for="fourspaces">
+            <input type="radio" id="fourspaces" name="indent" value="fourspaces" checked="checked">
+            4 spaces
+          </label>
+        </div>
+        <div class="inline form-group">
+          <label for="twospaces">
+            <input type="radio" id="twospaces" name="indent" value="twospaces">
+            2 spaces
+          </label>
+        </div>
+        <div class="inline form-group">
+          <label for="tab">
+            <input type="radio" id="tab" name="indent" value="tab">
+            tab
+          </label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Open curly brace:</legend>
+        <div class="inline form-group">
+          <label for="openbrace-end-of-line">
+            <input type="radio" id="openbrace-end-of-line" name="openbrace" value="end-of-line" checked="checked">
+            end of line
+          </label>
+        </div>
+        <div class="inline form-group">
+          <label for="openbrace-separate-line">
+            <input type="radio" id="openbrace-separate-line" name="openbrace" value="separate-line">
+            separate line
+          </label>
+        </div>
+      </fieldset>
+      <div class="footer">
+        <hr>
+        &copy; 2013 Sarah Vessels
+        <span>&middot;</span>
+        <a href="https://github.com/moneypenny/chrome-extractcss">View source code</a>
+      </div>
+    </div>
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

@@ -15,7 +15,7 @@ var extractcss_popup = {
     var cssboptions = {
       openbrace: $('input[name="openbrace"]:checked').val(),
       indent: '    ',
-      autosemicolon: $('#autosemicolon').val() === 'on' ? true : false
+      autosemicolon: $('#autosemicolon').is(':checked')
     };
     var indent_choice = $('input[name="indent"]:checked').val();
     if (indent_choice === 'twospaces') {
@@ -30,7 +30,7 @@ var extractcss_popup = {
       try {
         return extractCSS.extractIDs(html, options, cssboptions);
       } catch (err) {
-        console.error('[extractcss] Failed to extract CSS IDs: ' + err);
+        console.error('[extractCSS] Failed to extract CSS IDs: ' + err);
         return '';
       }
     };
@@ -38,7 +38,7 @@ var extractcss_popup = {
       try {
         return extractCSS.extractClasses(html, options, cssboptions);
       } catch (err) {
-        console.log('[extractcss] Failed to extract CSS classes: ' + err);
+        console.log('[extractCSS] Failed to extract CSS classes: ' + err);
         return ''
       }
     };

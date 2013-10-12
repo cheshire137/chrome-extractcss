@@ -9,26 +9,46 @@
 var extractcss_popup = {
   on_html_extracted: function(html) {
     var options = {
-        extractInline: 'on',
-        extractChildren: 'on'
+        extractInline: $('#extract_inline').val(),
+        extractChildren: $('#extract_children').val()
     };
     var cssboptions = {
-      openbrace: 'end-of-line',
-      indent: '  ',
-      autosemicolon: true
+      openbrace: $('input[name="openbrace"]:checked').val(),
+      indent: '    ',
+      autosemicolon: $('#autosemicolon').val() === 'on' ? true : false
     };
-    var extracted_ids = '', extracted_classes = '';
-    try {
-      extracted_ids = extractCSS.extractIDs(html, options, cssboptions);
-    } catch (err) {
-      console.error('[extractcss] Failed to extract CSS IDs: ' + err);
+    var indent_choice = $('input[name="indent"]:checked').val();
+    if (indent_choice === 'twospaces') {
+      cssboptions.indent = '  ';
+    } else if (indent_choice === 'tab') {
+        cssboptions.indent = '\t';
     }
-    try {
-      extracted_classes = extractCSS.extractClasses(html, options, cssboptions);
-    } catch (err) {
-      console.log('[extractcss] Failed to extract CSS classes: ' + err);
+    var should_extract_ids = $('#extract_ids').val();
+    var should_extract_classes = $('#extract_classes').val();
+    var result = '';
+    var extract_ids = function() {
+      try {
+        return extractCSS.extractIDs(html, options, cssboptions);
+      } catch (err) {
+        console.error('[extractcss] Failed to extract CSS IDs: ' + err);
+        return '';
+      }
+    };
+    var extract_classes = function() {
+      try {
+        return extractCSS.extractClasses(html, options, cssboptions);
+      } catch (err) {
+        console.log('[extractcss] Failed to extract CSS classes: ' + err);
+        return ''
+      }
+    };
+    if (extract_ids === 'on' && extract_classes === 'on') {
+      result = extract_ids() + '\n\n' + extract_classes();
+    } else if (extract_ids === 'on' && extract_classes !== 'on') {
+      result = extract_ids();
+    } else {
+      result = extract_classes();
     }
-    var result = extracted_ids + '\n\n' + extracted_classes;
     $('#result').text(result);
     Prism.highlightAll(true, function() {
       $('#spinner').hide();

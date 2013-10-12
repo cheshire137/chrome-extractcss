@@ -12,8 +12,10 @@ function save_options() {
   var autosemicolon = $('#autosemicolon').is(':checked');
   var status_area = $('#status-message');
   var extract_inline = $('#extract_inline').is(':checked') ? 'on' : 'off';
+  var extract_children = $('#extract_children').is(':checked') ? 'on' : 'off';
   var options = {openbrace: openbrace, indent: indent,
-                 autosemicolon: autosemicolon, extract_inline: extract_inline};
+                 autosemicolon: autosemicolon, extract_inline: extract_inline,
+                 extract_children: extract_children};
   chrome.storage.sync.set({'extractcss_options': options}, function() {
     status_area.text('Okay, got it!').fadeIn(function() {
       setTimeout(function() {
@@ -44,9 +46,14 @@ function restore_options() {
     } else {
       $('#extract_inline').attr('checked', 'checked');
     }
+    if (opts.extract_children === 'off') {
+      $('#extract_children').removeAttr('checked');
+    } else {
+      $('#extract_children').attr('checked', 'checked');
+    }
   });
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
 
-$('input[name="openbrace"], input[name="indent"], #autosemicolon, #extract_inline').on('change', save_options);
+$('input[name="openbrace"], input[name="indent"], #autosemicolon, #extract_inline, #extract_children').on('change', save_options);
